@@ -6,6 +6,7 @@
       v-model="inputTag"
       placeholder="Search By Tag"
       class="input input-bordered w-full max-w-xs"
+      @keyup.enter="searchByTag"
     /><button id="submit-button" @click="searchByTag" class="btn ml-5">
       Search
     </button>
