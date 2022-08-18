@@ -5,7 +5,7 @@ import xml2json from "@hendt/xml2json"
 export const usePhotosStore = defineStore("photos", {
   state: () => ({
     photos: [] as FlickrPhoto[],
-    tag: "cat",
+    tag: "",
     isLoading: false,
   }),
   getters: {
@@ -17,6 +17,15 @@ export const usePhotosStore = defineStore("photos", {
       // Set tag and re-fetches photos
       this.tag = tag
       this.fetchPhotos()
+    },
+
+    async sortByDatePublished(order: string) {
+      switch (order) {
+        case "asc":
+          this.photos.sort((a, b) => (a.published < b.published ? -1 : 1))
+        case "desc":
+          this.photos.sort((a, b) => (a.published > b.published ? -1 : 1))
+      }
     },
     async fetchPhotos() {
       try {
