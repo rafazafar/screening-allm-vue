@@ -11,8 +11,8 @@ declare global {
     "dc:date.Taken": Date
     content: Content
     author: Author
-    category: Category
     displaycategories: string
+    category: CategoryItem[]
   }
 
   interface Link {
@@ -33,7 +33,8 @@ declare global {
     "flickr:buddyicon": string
   }
 
-  interface Category {
+  interface CategoryItem {
+    term: string
     scheme: string
   }
 }

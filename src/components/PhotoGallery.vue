@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, onMounted, computed } from "vue"
-import { usePhotosStore } from "@/stores/photos"
+import { usePhotosStore } from "../stores/photos"
 
 export default defineComponent({
   setup() {
