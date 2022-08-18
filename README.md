@@ -70,8 +70,7 @@ The following open source libraries are used in this project:
     ├── tsconfig.vitest.json
     ├── vite.config.ts
 
-!e.config.ts[-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 
 ## Recommended IDE Setup
