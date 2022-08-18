@@ -1,6 +1,6 @@
 import { it, describe, expect, beforeEach } from "vitest"
 import { setActivePinia, createPinia } from "pinia"
-import { usePhotosStore } from "../../stores/photos"
+import { usePhotosStore } from "../photos"
 
 describe("Photos Store", () => {
   describe("Initial State", () => {

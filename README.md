@@ -53,6 +53,7 @@ The following open source libraries are used in this project:
     │   ├── router
     │   │
     │   ├── stores (pinia)
+    │   │   ├── __tests__
     │   │
     │   ├── types
     │   │
