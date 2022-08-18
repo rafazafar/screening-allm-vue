@@ -5,7 +5,7 @@ import xml2json from "@hendt/xml2json"
 export const usePhotosStore = defineStore("photos", {
   state: () => ({
     photos: [] as FlickrPhoto[],
-    tag: "",
+    tag: "cat",
     isLoading: false,
   }),
   getters: {
