@@ -5,14 +5,14 @@ declare global {
     title: string
     link: Link[]
     id: string
-    published: Date
-    updated: Date
-    "flickr:date_taken": Date
-    "dc:date.Taken": Date
+    published: Date | string
+    updated: Date | string
+    "flickr:date_taken": Date | string
+    "dc:date.Taken": Date | string
     content: Content
     author: Author
     displaycategories: string
-    category: CategoryItem[]
+    category: CategoryItem[] | CategoryItem
   }
 
   interface Link {
@@ -34,7 +34,6 @@ declare global {
   }
 
   interface CategoryItem {
-    term: string
-    scheme: string
+    [key: string]: string
   }
 }
