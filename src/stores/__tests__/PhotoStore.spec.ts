@@ -13,7 +13,7 @@ describe("Photos Store", () => {
     })
     it("empty tags", () => {
       const photosStore = usePhotosStore()
-      expect(photosStore.tag).toBe("")
+      expect(photosStore.tag).toBe("cat")
     })
   })
 })
