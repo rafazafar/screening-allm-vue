@@ -51,22 +51,22 @@
 
 <script lang="ts">
 import { useUserStore } from "../stores/user"
-import { usePhotosStore } from "../stores/photos"
-import { defineComponent, onMounted, reactive, ref } from "vue"
+import { defineComponent, onMounted, ref } from "vue"
 
 export default defineComponent({
   props: ["photo"],
   setup(props) {
     const userStore = useUserStore()
 
+    // Initialize ref for photo saved status. Avoids mutating the original data
     const isSaved = ref(false)
 
     onMounted(() => {
-      // check if photo is already saved
+      // Check if photo is already saved
       isSaved.value = userStore.isSaved(props.photo)
     })
 
-    // toggle save/unsave photoand update state
+    // Toggle save/unsave photo and update state
     function saveUnsavePhoto(photo: FlickrPhoto): void {
       isSaved.value = userStore.markUnmarkSaved(photo)
     }

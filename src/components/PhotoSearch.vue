@@ -20,8 +20,11 @@ import { usePhotosStore } from "../stores/photos"
 export default defineComponent({
   setup() {
     const photosStore = usePhotosStore()
+
+    // Initialize ref for search by tag input field
     const inputTag = ref("")
 
+    // Fetches Photos with tag query and updates the stored data
     function searchByTag(): void {
       photosStore.searchByTag(inputTag.value)
     }
