@@ -1,6 +1,78 @@
-# screening-allm-vue
+<h1 align="center"> Screening Test </h1>
+<h3 align="center"> A basic test of how to write code </h3>  
 
-This template should help get you started developing with Vue 3 in Vite.
+</br>
+
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#prerequisites"> ➤ Prerequisites</a></li>
+    <li><a href="#folder-structure"> ➤ Folder Structure</a></li>
+  </ol>
+</details>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+<!-- PREREQUISITES -->
+<h2 id="prerequisites"> Prerequisites</h2>
+
+[![made-with-VueJS](https://img.shields.io/badge/VueJS-%5E3.x-orange)](https://vuejs.org/) <br>
+[![NodeJS](https://img.shields.io/badge/Node-%3E%3D14.x-green)](https://vuejs.org/) <br>
+
+
+<!--This project is written in Python programming language. <br>-->
+The following open source libraries are used in this project:
+* Axios
+* xml2js
+* Pinia
+* TailwindCSS
+* DaisyUI
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<!-- :paw_prints:-->
+<!-- FOLDER STRUCTURE -->
+<h2 id="folder-structure"> Folder Structure</h2>
+
+    code
+    .
+    │
+    ├── src
+    │   ├── assets
+    │   │
+    │   ├── components
+    │   │   ├── __tests__
+    │   │   ├── common
+    │   │      
+    │   ├── composables
+    │   │ 
+    │   ├── router
+    │   │
+    │   ├── stores (pinia)
+    │   │
+    │   ├── types
+    │   │
+    │   ├── views
+    │   │
+    │   ├── App.vue
+    │   ├── Main.ts
+    │       
+    ├── index.html
+    ├── package.json
+    ├── tailwind.config.json
+    ├── tsconfig.app.js
+    ├── tsconfig.config.json
+    ├── tsconfig.json
+    ├── tsconfig.vitest.json
+    ├── vite.config.ts
+
+!e.config.ts[-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
 
 ## Recommended IDE Setup
 
@@ -16,10 +88,6 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
@@ -42,5 +110,11 @@ npm run build
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run test:unit
+npm run test
+```
+
+### Run Coverage Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run coverage
 ```
