@@ -60,8 +60,8 @@ export default defineComponent({
     const sortDirection = ref("desc")
 
     async function sortByDatePublished(order: string) {
-      sortDirection.value = order
       const res = await photosStore.sortByDatePublished(order)
+      sortDirection.value = res
     }
 
     return {

@@ -23,8 +23,12 @@ export const usePhotosStore = defineStore("photos", {
       switch (order) {
         case "asc":
           this.photos.sort((a, b) => (a.published < b.published ? -1 : 1))
+          return "asc"
         case "desc":
           this.photos.sort((a, b) => (a.published > b.published ? -1 : 1))
+          return "desc"
+        default:
+          return "desc"
       }
     },
     async fetchPhotos() {

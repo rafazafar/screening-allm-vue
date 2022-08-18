@@ -2,7 +2,7 @@
   <div id="photo-wrapper" class="flex flex-wrap w-1/3">
     <div class="w-full p-1 md:p-2 relative">
       <div
-        class="absolute top-5 right-5 cursor-pointer text-red-300 drop-shadow"
+        class="absolute z-10 top-5 right-5 cursor-pointer text-red-300 drop-shadow"
         @click="saveUnsavePhoto(photo)"
       >
         <svg
@@ -34,17 +34,26 @@
           />
         </svg>
       </div>
-
-      <!-- Lazy Load Image -->
-      <img
-        alt="gallery"
-        class="block object-cover object-center w-full h-full max-h-[20rem] rounded-lg"
-        v-lazy="{
-          src: photo.link[1].href,
-          loading: 'https://via.placeholder.com/300',
-          error: 'https://via.placeholder.com/300',
-        }"
-      />
+      <div id="content" class="relative h-[20rem]" @click="toggleShowDetails">
+        <!-- Lazy Load Image -->
+        <img
+          v-if="!showDetails"
+          alt="gallery"
+          class="block object-cover object-center w-full h-full rounded-lg"
+          v-lazy="{
+            src: photo.link[1].href,
+            loading: 'https://via.placeholder.com/300',
+            error: 'https://via.placeholder.com/300',
+          }"
+        />
+        <div
+          v-else
+          class="block object-cover object-center w-full h-full rounded-lg"
+        >
+          <PhotoCardDetails :data="photoDetails" />
+        </div>
+        <!-- {{ photoDetails.title }} -->
+      </div>
     </div>
   </div>
 </template>
@@ -52,6 +61,7 @@
 <script lang="ts">
 import { useUserStore } from "../stores/user"
 import { defineComponent, onMounted, ref } from "vue"
+import PhotoCardDetails from "./PhotoCardDetails.vue"
 
 export default defineComponent({
   props: ["photo"],
@@ -60,6 +70,8 @@ export default defineComponent({
 
     // Initialize ref for photo saved status. Avoids mutating the original data
     const isSaved = ref(false)
+    const showDetails = ref(false)
+    const photoDetails = props.photo
 
     onMounted(() => {
       // Check if photo is already saved
@@ -71,10 +83,18 @@ export default defineComponent({
       isSaved.value = userStore.markUnmarkSaved(photo)
     }
 
+    function toggleShowDetails() {
+      showDetails.value = !showDetails.value
+    }
+
     return {
       isSaved,
       saveUnsavePhoto,
+      toggleShowDetails,
+      showDetails,
+      photoDetails,
     }
   },
+  components: { PhotoCardDetails },
 })
 </script>
