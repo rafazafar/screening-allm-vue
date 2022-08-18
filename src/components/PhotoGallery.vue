@@ -33,7 +33,11 @@ export default defineComponent({
       <div v-if="isLoading" class="loading">Loading data.. please wait</div>
 
       <div v-else class="flex flex-wrap -m-1 md:-m-2">
-        <div class="flex flex-wrap w-1/3" v-for="photo in photos">
+        <div
+          id="photo-wrapper"
+          class="flex flex-wrap w-1/3"
+          v-for="photo in photos"
+        >
           <div class="w-full p-1 md:p-2 relative">
             //TODO: Add logic for storing photo to user.favs
             <div

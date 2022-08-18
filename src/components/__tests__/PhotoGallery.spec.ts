@@ -1,30 +1,18 @@
-import { describe, it, expect, beforeAll } from "vitest"
-import { mount } from "@vue/test-utils"
+import { describe, it, expect } from "vitest"
+import { mount, flushPromises } from "@vue/test-utils"
+
+import { createPinia } from "pinia"
+
 import PhotoGallery from "../PhotoGallery.vue"
-import { usePhotosStore } from "../../stores/photos"
-import { setActivePinia, createPinia } from "pinia"
-import { createTestingPinia } from "@pinia/testing"
 
-beforeAll(() => {
-  setActivePinia(createPinia())
-})
-
-describe("PhotoGallery", () => {
-  it("renders properly", () => {
-    const wrapper = mount(PhotoGallery)
-    expect(wrapper.text()).toContain("")
-  })
-
-  it("displays the correct number of photos", () => {
+describe("PhotoSearch", () => {
+  it("should render", async () => {
     const wrapper = mount(PhotoGallery, {
       global: {
-        plugins: [createTestingPinia()],
+        plugins: [createPinia()],
       },
     })
-    const photosStore = usePhotosStore()
-    photosStore.photos = []
-
-    console.log(wrapper.findAll("div"))
-    expect(wrapper.findAll("img").length).toBe(0)
+    await flushPromises()
+    expect(wrapper.findAll(".loading").length).toBe(1)
   })
 })
